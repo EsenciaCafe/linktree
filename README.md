@@ -1,6 +1,6 @@
 # Esencia Café
 
-Página de accesos de Esencia, publicada en https://esenciacafe.github.io/linktree/.
+Página de accesos de Esencia, publicada en https://esenciacafe.es.
 
 - Edita `index.html` para cambiar textos, horario y enlaces.
 - Edita `styles.css` para cambiar el diseño.
@@ -10,3 +10,4 @@ Página de accesos de Esencia, publicada en https://esenciacafe.github.io/linktr
 No necesita instalación, base de datos ni JavaScript. Los pagos se realizan directamente en los enlaces existentes de Stripe y Square.
 
 Consulta [CONEXION-DOMINIO.md](CONEXION-DOMINIO.md) para conectar esenciacafe.es.
+

@@ -1,38 +1,23 @@
-# Conectar esenciacafe.es con GitHub Pages
+# Dominio de Esencia Café
 
-Alojamiento actual: GitHub Pages.
+Web: https://esenciacafe.es
 Repositorio: https://github.com/EsenciaCafe/linktree
-Web: https://esenciacafe.github.io/linktree/
+Alojamiento: GitHub Pages, rama main, carpeta raíz.
 
-Estas instrucciones sustituyen las anteriores de Sites. No uses las IP 162.159.143.30 y 172.66.3.26 ni los TXT de OpenAI/Cloudflare del alojamiento anterior.
+## Configuración aplicada el 23/09/2026
 
-## 1. Registrar el dominio en GitHub
+- GitHub Pages: dominio personalizado esenciacafe.es (archivo CNAME).
+- DonDominio, raíz esenciacafe.es: ANAME a esenciacafe.github.io.
+- DonDominio, www.esenciacafe.es: CNAME a esenciacafe.github.io.
+- Se conservaron los servidores DNS de DonDominio y todos los registros de correo.
 
-Abre https://github.com/EsenciaCafe/linktree/settings/pages
-En **Custom domain**, escribe `esenciacafe.es` y pulsa **Save**. GitHub creará un archivo CNAME. La dirección de GitHub empezará a redirigir al dominio, por lo que conviene hacer el paso siguiente inmediatamente después.
+El ANAME sustituye los cuatro registros A manuales: DonDominio resuelve automáticamente las direcciones de GitHub. No añadir simultáneamente los registros del alojamiento anterior.
 
-## 2. Cambiar los registros en DonDominio
+Valores anteriores, por si se necesita restaurar el parking:
+- ANAME raíz: parkingsrv0.dondominio.com
+- CNAME www: parkingsrv0.dondominio.com.
 
-Entra en **Dominios → esenciacafe.es → Parking & Zona DNS**. Conserva los servidores DNS de DonDominio.
+El 23/09/2026 el DNS autoritativo ya devolvía las cuatro IPv4 de GitHub Pages. HTTPS activado y comprobado. Tanto https://esenciacafe.es como https://www.esenciacafe.es responden correctamente; www y HTTP redirigen a https://esenciacafe.es. GitHub muestra DNS check successful y Enforce HTTPS activado.
 
-Configura:
+Configuración de Pages: https://github.com/EsenciaCafe/linktree/settings/pages
 
-| Tipo | Nombre/Host | Destino |
-|---|---|---|
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | esenciacafe.github.io |
-
-`@` significa el dominio raíz esenciacafe.es. Si el formulario no acepta @, usa la opción de raíz o el nombre completo según indique el panel. El destino de www no lleva https:// ni /linktree/.
-
-Sustituye los registros web de parking que entren en conflicto con estos valores (A/AAAA del raíz o A/AAAA/CNAME de www). No borres registros de correo: MX, SPF, DKIM, DMARC ni otros TXT de servicios activos. Mantén el TTL predeterminado.
-
-## 3. Activar HTTPS
-
-Cuando el DNS se haya propagado, vuelve a GitHub → Settings → Pages. Usa **Check again** si aparece y activa **Enforce HTTPS** cuando esté disponible. La propagación y emisión del certificado pueden tardar hasta 24 horas.
-
-Comprueba https://esenciacafe.es y https://www.esenciacafe.es sin iniciar sesión. Solo después cambia el enlace de Instagram a https://esenciacafe.es.
-
-Fuente: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
